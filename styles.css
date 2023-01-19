@@ -6,14 +6,17 @@ body{
     margin: 0;
     padding: .8em;
     height: 100vh;
-    display: flex;
+    /*  display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     background-color: #115;
 }
 .wrapper{
     max-width: 900px;
     position: relative;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .wrapper .carousel{
     white-space: nowrap;
@@ -21,10 +24,13 @@ body{
     overflow: hidden;
     scroll-behavior: smooth;
 }
+.wrapper .carousel.dragging{
+    cursor: grab;
+    scroll-behavior: auto;
+}
 .wrapper .carousel img{
     height: 340px;
     width: calc(100% / 3);
-    /* object-fit: cover; */
     margin-left: 5px;
     -webkit-user-drag: none;
 }
@@ -65,9 +71,16 @@ body{
         object-fit: cover;
     }
 }
+@media (max-width: 420px) {
+    .wrapper .carousel img{
+        object-fit: contain;
+    }
+}
 
 .logo{
     width: 100px;
     position: absolute;
     top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
 }
